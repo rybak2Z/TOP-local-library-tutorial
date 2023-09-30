@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 console.log(
-  'This script populates some test books, authors, genres and bookinstances to your database. Specified database credentials as environment variables.'
+  'This script populates some test books, authors, genres and bookinstances to your database. Specified database credentials as environment variables.',
 );
 
 require('dotenv').config();
