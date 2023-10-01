@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  h1 Author: #{author.name}
+  - const dateOfBirth = author.date_of_birth_formatted ?? 'No date of birth found'
+  - const dateOfDeath = author.date_of_death_formatted ?? 'present'
+  p #{dateOfBirth} - #{dateOfDeath}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Books
+
+    dl
+      each book in author_books
+        dt
+          a(href=book.url) #{book.title}
+        dd #{book.summary}
+
+      else
+        p This author has no books.
