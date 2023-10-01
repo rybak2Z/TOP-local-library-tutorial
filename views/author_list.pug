@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each author in author_list
+      li
+        - const dateOfBirth = author.date_of_birth_formatted ?? 'No date of birth found'
+        - const dateOfDeath = author.date_of_death_formatted ?? 'present'
+        a(href=author.url) #{author.name}
+        |  (#{dateOfBirth} - #{dateOfDeath})
+
+    else
+      li There are no authors.
+
