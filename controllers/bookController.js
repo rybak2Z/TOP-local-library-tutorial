@@ -159,7 +159,6 @@ exports.book_delete_get = asyncHandler(async (req, res, next) => {
     Book.findById(req.params.id).populate('author').exec(),
     BookInstance.find({ book: req.params.id }).exec(),
   ]);
-  console.log(allBookInstances);
 
   if (book === null) {
     res.redirect('/catalog/books');

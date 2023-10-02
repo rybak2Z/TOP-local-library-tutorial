@@ -108,7 +108,6 @@ exports.genre_delete_post = asyncHandler(async (req, res, next) => {
     res.send('no');
     return;
   }
-  console.log(`deleting genre ${genre.name}, ${genre._id}`);
 
   if (allBooksByGenre.length > 0) {
     res.render('genre_delete', {
