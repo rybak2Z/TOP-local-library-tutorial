@@ -19,9 +19,7 @@ const bookinstances = [];
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-const dbUser = process.env.DB_USERNAME;
-const dbPassword = process.env.DB_PASSWORD;
-const mongoDB = `mongodb+srv://${dbUser}:${dbPassword}@local-library.znngdf1.mongodb.net/?retryWrites=true&w=majority`;
+const mongoDB = process.env.MONGODB_URI;
 
 main().catch((err) => console.log(err));
 

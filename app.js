@@ -15,9 +15,7 @@ const app = express();
 // connect to database
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const dbUser = process.env.DB_USERNAME;
-const dbPassword = process.env.DB_PASSWORD;
-const mongodb = `mongodb+srv://${dbUser}:${dbPassword}@local-library.znngdf1.mongodb.net/?retryWrites=true&w=majority`;
+const mongodb = process.env.MONGODB_URI;
 
 connectToDb().catch((err) => console.log(err));
 async function connectToDb() {
