@@ -4,7 +4,7 @@ block content
   h1 #{title}: #{author.name}
   - const dateOfBirth = author.date_of_birth_formatted ?? 'No date of birth found'
   - const dateOfDeath = author.date_of_death_formatted ?? 'present'
-  p #{dateOfBirth} - #{dateOfDeath}
+  p Lifespan: #{dateOfBirth} - #{dateOfDeath}
 
   if author_books.length
 
