@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 console.log(
-  'This script populates some test books, authors, genres and bookinstances to your database. Specified database credentials as environment variables.',
+  'This script populates some test data to the database. Specify database URI and database name as "MONGODB_URI" and "DB_NAME" environment variables.',
 );
 
 require('dotenv').config();
@@ -19,13 +19,14 @@ const bookinstances = [];
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-const mongoDB = process.env.MONGODB_URI;
+const mongoDbUri = process.env.MONGODB_URI;
+const databaseName = process.env.DB_NAME;
 
 main().catch((err) => console.log(err));
 
 async function main() {
   console.log('Debug: About to connect');
-  await mongoose.connect(mongoDB);
+  await mongoose.connect(mongoDbUri, { dbName: databaseName });
   console.log('Debug: Should be connected?');
   await createGenres();
   await createAuthors();
